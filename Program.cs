@@ -1,8 +1,8 @@
 ﻿using csharp_gestore_eventi;
+using System.Diagnostics.Tracing;
 //Milestone 1:
 
-Evento concerto1 = new Evento("jazzMusic", new DateTime(2023, 08, 27));
-
+/*
 //Aggiunta numero di posti prenotati con conseguente salvatasggio del dato:
 Console.WriteLine(concerto1.PrenotaPosti(10));
 Console.WriteLine(concerto1.NumeroPosti);
@@ -55,7 +55,39 @@ if (InputDisdetta == "Y"| InputDisdetta == "y")
 else if (InputDisdetta == "N" | InputDisdetta == "n")
 {
     Environment.Exit(0);
+}*/
+
+//milsetone 4
+
+Console.WriteLine("inserisci il nome dell'evento");
+string TitoloEvento = Console.ReadLine();
+
+ProgrammaEventi program = new ProgrammaEventi(TitoloEvento);
+
+Console.WriteLine("quanti eventi vuoi creare?");
+int numeroeventi=Convert.ToInt32(Console.ReadLine());
+for (int i = 1; i <= numeroeventi; i++)
+{
+    Console.WriteLine($"evento n°{i}");
+
+    Console.WriteLine("Aggingi titolo");
+    string title = Console.ReadLine();
+
+    Console.WriteLine("aggiungi la data");
+    DateTime data = Convert.ToDateTime(Console.ReadLine());
+
+    Evento eventop = new Evento(title,data);
+    program.AggiungiEvento(eventop);
+
 }
+Console.WriteLine($"il numero dei tuoi eventi in programma è:{numeroeventi}");
+Console.WriteLine($"ecco il tuo programma eventi: {program.Titolo}");
+ProgrammaEventi.Print(program.Eventi);
+
+
+
+
+
 
 
 

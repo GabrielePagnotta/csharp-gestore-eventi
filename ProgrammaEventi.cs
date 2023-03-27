@@ -11,7 +11,7 @@ namespace csharp_gestore_eventi
         public string Titolo;
         public List<Evento> Eventi;
 
-        public ProgrammaEventi(string titolo, List<Evento> eventi)
+        public ProgrammaEventi(string titolo)
         {
             Titolo = titolo;
             Eventi = new List<Evento>();
@@ -22,18 +22,20 @@ namespace csharp_gestore_eventi
         {
             Eventi.Add(evento);
         }
-        public List<Evento> addDates(DateTime data)
+        public List<Evento> AddDates(DateTime data)
         {
             return Eventi.Where(e => e.Data.Date == data.Date).ToList();
         }
-        public static string StampaListaEventi(List<Evento> eventi)
+        public static string Print(List<Evento> eventi)
         {
-            StringBuilder bld = new StringBuilder();
+            
             foreach (var evento in eventi)
-            {
-                bld.AppendLine($"{evento.Data:dd/MM/yyyy}, {evento.Titolo}");
+            {  
+                Console.WriteLine("------------------------------------");
+                Console.WriteLine($"{evento.Data:dd/MM/yyyy}");
+                Console.WriteLine($"{evento.Titolo}");
             }
-            return bld.ToString();
+            return eventi.ToString();
         }
         public int NumeroEventi()
         {
@@ -45,15 +47,5 @@ namespace csharp_gestore_eventi
             Eventi.Clear();
         }
 
-        public override string ToString()
-        {
-            StringBuilder sb = new StringBuilder();
-            sb.AppendLine($"Nome programma evento: {Titolo}");
-            foreach (var evento in Eventi)
-            {
-                sb.AppendLine($"{evento.Data:dd/MM/yyyy} - {evento.Titolo}");
-            }
-            return sb.ToString();
-        }
     }
 }
