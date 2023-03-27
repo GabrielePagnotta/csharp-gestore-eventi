@@ -14,7 +14,6 @@ namespace csharp_gestore_eventi
         public  string Titolo { get; set; }
         public  DateTime  Data { get; set; }
 
-        public List<Evento> Events { get; set; }
       
         public int Capienza
         {
