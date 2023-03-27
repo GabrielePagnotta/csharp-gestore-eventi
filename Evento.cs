@@ -12,7 +12,10 @@ namespace csharp_gestore_eventi
         int capienza;
         int numeroPosti;
         public  string Titolo { get; set; }
-        public  DateTime Data { get; set; }
+        public  DateTime  Data { get; set; }
+
+        public List<Evento> Events { get; set; }
+      
         public int Capienza
         {
             get
@@ -46,6 +49,12 @@ namespace csharp_gestore_eventi
             Data = data;
             Capienza = 100;
         }
+
+        public Evento()
+        {
+            
+        }
+
 
         //metodi:
 
