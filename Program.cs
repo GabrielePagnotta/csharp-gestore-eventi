@@ -57,7 +57,6 @@ else if (InputDisdetta == "N" | InputDisdetta == "n")
     Environment.Exit(0);
 }
 
-//commento temporaneo per push
 
 
 
